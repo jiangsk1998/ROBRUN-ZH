@@ -40,6 +40,8 @@ ROB RUN_Data\StreamingAssets\aa\StandaloneWindows64\
 
 脚本会自动读取注册表和 `libraryfolders.vdf`，在所有 Steam 库中定位游戏目录，不需要你手动找路径。
 
+> **窗口一闪而过？** 正常情况脚本会停在「按任意键继续」。如果真的秒关，请打开 `%TEMP%\ROBRUN-ZH-install.log` 看最后几行——通常是杀软拦截了 PowerShell，右键「以管理员身份运行」或把解压目录加入信任区即可。细节见 [常见问题](docs/常见问题.md)。
+
 ### 手动安装
 
 把仓库里的 [`patch/`](patch/) 目录下的 bundle 文件，覆盖到：

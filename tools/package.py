@@ -27,15 +27,29 @@ BUNDLE_NAME = (
 )
 ZIP_NAME = "ROBRUN-ZH-CN"
 
-README_TXT = """ROB RUN 简体中文汉化包 v1.0.0
+README_TXT = """ROB RUN 简体中文汉化包 v1.0.1
 ================================
 
 安装
 ----
-1. 完全退出游戏（任务管理器里 ROB RUN.exe 和 start_protected_game.exe 都要没了）
-2. 双击「安装汉化.bat」
-3. 看到「[成功] 汉化已安装」后，从 Steam 库启动游戏
+1. 把整个压缩包解压出来（不要直接在压缩包里双击）
+2. 完全退出游戏（任务管理器里 ROB RUN.exe 和 start_protected_game.exe 都要没了）
+3. 双击「安装汉化.bat」
+4. 看到「[成功] 汉化已安装」后，从 Steam 库启动游戏
    注意：游戏内语言请保持 English（我们替换的就是英文语言包）
+
+窗口一闪而过？
+--------------
+脚本结束时会停在「按任意键继续」，正常不会闪退。
+如果窗口还是瞬间关闭，说明脚本中途出错，请查看日志：
+  %TEMP%\\ROBRUN-ZH-install.log
+（Win+R 输入 %TEMP% 回车即可打开该目录）
+
+常见处理：
+- 提示权限不足 -> 右键「安装汉化.bat」-> 以管理员身份运行
+- 提示找不到游戏 -> 用命令行指定路径：
+  powershell -ExecutionPolicy Bypass -File install.ps1 -GamePath "D:\\Steam\\steamapps\\common\\Rob Run"
+- 提示文件大小不一致 -> 把游戏目录加入杀毒软件信任区后重试
 
 还原英文
 --------
