@@ -1,0 +1,58 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 语法检查
+        run: |
+          python -m py_compile tools/*.py
+
+      - name: JSON 可解析性
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          ok = True
+          for p in pathlib.Path("strings").glob("*.json"):
+              try:
+                  data = json.loads(p.read_text(encoding="utf-8"))
+                  n = len(data)
+                  print(f"{p}: {n} 条")
+              except Exception as e:
+                  ok = False
+                  print(f"{p}: 解析失败 {e}")
+          for p in ["tools/glossary.json"]:
+              try:
+                  data = json.loads(pathlib.Path(p).read_text(encoding="utf-8"))
+                  print(f"{p}: {len(data)} 条")
+              except Exception as e:
+                  ok = False
+                  print(f"{p}: 解析失败 {e}")
+          sys.exit(0 if ok else 1)
+          PY
+
+      - name: 译文完整性
+        run: |
+          python - <<'PY'
+          import json, sys
+          en = json.loads(open("strings/strings_en.json", encoding="utf-8").read())
+          zh = json.loads(open("strings/strings_zh.json", encoding="utf-8").read())
+          total = len(en)
+          cjk = sum(1 for v in zh.values()
+                    if isinstance(v, str) and any("\u4e00" <= c <= "\u9fff" for c in v))
+          print(f"原文 {total} 条，含中文 {cjk} 条 ({cjk / total:.1%})")
+          if cjk < total * 0.9:
+              print("覆盖率低于 90%")
+              sys.exit(1)
+          PY

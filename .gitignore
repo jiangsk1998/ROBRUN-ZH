@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 构建产物（dist 可选纳入版本库，如需发布请手动 git add）
+dist/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本地临时文件
+*.log
+*.tmp
+*.bak
+*.original_bak
