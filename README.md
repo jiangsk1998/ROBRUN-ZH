@@ -33,7 +33,7 @@ ROB RUN_Data\StreamingAssets\aa\StandaloneWindows64\
 
 ### 一键安装（推荐）
 
-1. 下载 `ROBRUN-ZH-CN.zip`（**仓库根目录**里的始终是最新版；Releases 页面可能滞后），解压到任意位置
+1. 到 [Releases](../../releases/latest) 下载 `ROBRUN-ZH-CN.zip`（仓库根目录的同名文件内容一致），解压到任意位置
 2. **完全退出游戏**（包括 Steam 里的 ROB RUN）
 3. 双击 `安装汉化.bat`
 4. 看到「[成功] 汉化已安装」后，从 Steam 库正常启动游戏
