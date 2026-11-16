@@ -3,9 +3,10 @@
 > 为 Steam 游戏 **ROB RUN**（AppID `4262460`）制作的简体中文语言包。官方目前未提供中文，本项目通过替换 Unity Addressables 语言包实现界面汉化，**不修改任何可执行文件或 DLL**。
 
 ![platform](https://img.shields.io/badge/platform-Windows-blue)
-![version](https://img.shields.io/badge/game-Rob%20Run%202026.11-lightgrey)
-![coverage](https://img.shields.io/badge/coverage-4567%2F4763%20(95.9%25)-brightgreen)
-![license](https://img.shields.io/badge/license-MIT%20(code)-green)
+![game](https://img.shields.io/badge/game-Rob%20Run%202026.11-lightgrey)
+![coverage](https://img.shields.io/badge/coverage-95.9%25-brightgreen)
+![license](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY--NC--SA-green)
+![release](https://img.shields.io/github/v/release/jiangsk1998/ROBRUN-ZH)
 
 ---
 
